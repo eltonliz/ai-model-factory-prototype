@@ -209,7 +209,17 @@ function Shell({ store, setStore }: { store: Store; setStore: React.Dispatch<Rea
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const initialRouteChecked = useRef(false);
   const selectedProject = store.projects[0];
+
+  useEffect(() => {
+    if (initialRouteChecked.current) return;
+    initialRouteChecked.current = true;
+    if (location.pathname !== "/dashboard/overview") {
+      navigate("/dashboard/overview", { replace: true });
+    }
+  }, [location.pathname, navigate]);
+
   return (
     <Layout className="app-shell">
       <Sider width={232} collapsedWidth={72} collapsed={collapsed} className="side">
@@ -288,6 +298,7 @@ function Shell({ store, setStore }: { store: Store; setStore: React.Dispatch<Rea
             <Route path="/settings/tenants" element={<TenantsPage />} />
             <Route path="/settings/rbac" element={<RbacPage />} />
             <Route path="/settings/risk-rules" element={<RiskRulesPage />} />
+            <Route path="*" element={<Navigate to="/dashboard/overview" replace />} />
           </Routes>
         </Content>
       </Layout>
@@ -705,8 +716,11 @@ function App() {
     tasks: seedIterationTasks,
     callLogs: seedCallLogs,
   });
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const browserBase = basePath && basePath !== "/" && window.location.pathname.startsWith(basePath) ? basePath : "/";
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={browserBase}>
       <Shell store={store} setStore={setStore} />
     </BrowserRouter>
   );
