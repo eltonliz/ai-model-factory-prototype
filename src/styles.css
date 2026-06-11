@@ -1,0 +1,292 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1280px;
+  color: #102033;
+  background: #f5f7fb;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.side {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  background: linear-gradient(180deg, #061833 0%, #06152b 55%, #03101f 100%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 72px;
+  padding: 16px 18px;
+  color: #fff;
+}
+
+.brand b {
+  display: block;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.brand span {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+}
+
+.logo-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #176bff, #48c6ff);
+  box-shadow: 0 8px 24px rgba(23, 107, 255, 0.35);
+}
+
+.side .ant-menu {
+  background: transparent !important;
+  border-inline-end: 0 !important;
+  padding: 4px 10px 56px;
+}
+
+.side .ant-menu-item,
+.side .ant-menu-submenu-title {
+  height: 42px;
+  line-height: 42px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.side .ant-menu-item-selected {
+  background: #176bff !important;
+}
+
+.collapse-btn {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.topbar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #e8edf5;
+  box-shadow: 0 1px 0 rgba(11, 31, 68, 0.04);
+}
+
+.global-search {
+  width: 340px;
+}
+
+.top-icon {
+  font-size: 19px;
+  color: #233958;
+}
+
+.content {
+  padding: 20px;
+}
+
+.page-header {
+  margin-bottom: 14px;
+}
+
+.page-header h3 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.ant-card {
+  border-color: #e7edf6;
+  box-shadow: none;
+}
+
+.metric-card {
+  min-height: 104px;
+}
+
+.metric-card .ant-card-body {
+  padding: 16px;
+}
+
+.metric-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+.flow-card {
+  margin: 12px 0;
+}
+
+.lifecycle {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.life-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
+}
+
+.life-node:not(:last-child)::after {
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 24px);
+  width: calc(100% - 38px);
+  height: 1px;
+  content: "";
+  border-top: 1px dashed #cad6e7;
+}
+
+.life-node span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #d9e6ff;
+  border-radius: 50%;
+  color: #176bff;
+  font-weight: 760;
+  background: #f4f8ff;
+}
+
+.life-node .ant-typography {
+  font-size: 13px;
+}
+
+.requirement-note {
+  position: sticky;
+  top: 78px;
+}
+
+.requirement-note .ant-card-head {
+  border-bottom: 0;
+}
+
+.note-section {
+  margin-top: 14px;
+}
+
+.note-section ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #42526d;
+  line-height: 1.8;
+}
+
+.filter-bar {
+  margin-bottom: 12px;
+}
+
+.stage-card {
+  margin-bottom: 12px;
+}
+
+.next-action {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #edf1f7;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mt12 {
+  margin-top: 12px;
+}
+
+.full {
+  width: 100%;
+}
+
+.chat {
+  min-height: 420px;
+  padding: 12px;
+  margin-bottom: 12px;
+  overflow: auto;
+  background: #f7f9fd;
+  border: 1px solid #e6edf6;
+  border-radius: 8px;
+}
+
+.bubble {
+  max-width: 86%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  line-height: 1.7;
+  border-radius: 10px;
+  border: 1px solid #e3eaf5;
+}
+
+.bubble.user {
+  margin-left: auto;
+  background: #eaf2ff;
+  border-color: #c8dcff;
+}
+
+.bubble.ai {
+  background: #fff;
+}
+
+.ant-table-wrapper {
+  background: #fff;
+  border-radius: 8px;
+}
+
+.ant-table-thead > tr > th {
+  font-weight: 650 !important;
+  color: #31415c !important;
+}
+
+.ant-btn {
+  border-radius: 7px;
+}
+
+.ant-tabs-tab {
+  font-weight: 560;
+}
+
+@media (max-width: 1320px) {
+  .global-search {
+    width: 240px;
+  }
+  .lifecycle {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .life-node::after {
+    display: none;
+  }
+}
